@@ -5,6 +5,11 @@ from datatypes import *
 from api import *
 
 api = PubgApi()
+# currently supported: find a single player by name
+# shard is 2nd parameter, default is pc-eu, you can change
+# defaults in the api.py file
+# By default, local "storage" will also be searched for cached
+# files, to disable, pass search_ds=False
 player, error = api.get_player("Arican")
 if error:
     raise Exception(error)
@@ -21,7 +26,7 @@ print(match.id)
 # print number of teams
 print(len(match.rosters))
 
-# print the names of the teams of the 2nd team
+# print the names of the players of the 2nd team
 for x in (match.get_roster_participants(match.rosters[1])):
     print(x.name)
 
