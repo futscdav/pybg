@@ -349,11 +349,11 @@ class Item:
 
 class ItemPackage(Location):
     def __init__(self):
-        super().__init__(json_object['location'])
         self.item_package_id = None
         self.items = None
 
     def __init__(self, json_object):
+        super().__init__(json_object['location'])
         self.item_package_id = json_object['itemPackageId']
         self.items = []
         self.read_items(json_object['items'])

@@ -39,8 +39,8 @@ if error:
 for event in telemetry.events:
     if event.event_type == "LogPlayerKill":
         killer = event.killer.name if event.killer.name else event.damage_type_category
-        print(killer + " killed " + event.victim.name)
+        print(killer.ljust(20) + " -> " + event.victim.name)
     if event.event_type == "LogMatchEnd":
-        print("Match ended, winners are: " + ','.join(map(lambda x: x.name, list(filter(lambda x: x.ranking == 1, event.characters)))))
+        print("Match ended, winners are: " + ', '.join(map(lambda x: x.name, list(filter(lambda x: x.ranking == 1, event.characters)))))
 
         
