@@ -22,7 +22,7 @@ def code_to_error(code):
     elif code == 429:
         return "Too many requests"
     else:
-        return "Unknown status code: %(code)s"
+        return ("Unknown status code: %s" % code)
 
 def save_to_file(filename, text):
     if not os.path.exists(os.path.dirname(filename)):
@@ -80,6 +80,7 @@ class PubgApi:
             return None, error
 
     def get_player_json_checked(self, player, shard, search_ds):
+        result = None
         if search_ds:
             result = self.search_player_ds(player, shard)
         return (result, None) if result else (self.make_player_request(player, shard))
@@ -106,6 +107,7 @@ class PubgApi:
             return None, error
 
     def get_match_json_checked(self, matchid, shard, search_ds):
+        result = None
         if search_ds:
             result = self.search_match_ds(matchid, shard)
         return (result, None) if result else (self.make_match_request(matchid, shard))
@@ -128,6 +130,7 @@ class PubgApi:
 
     def get_match_telemetry_checked(self, match, search_ds):
         assert(type(match) == Match)
+        result = None
         if search_ds:
             result = self.search_telemetry_ds(match.get_telemetry_link())
         return (result, None) if result else (self.make_telemetry_request(match.get_telemetry_link()))

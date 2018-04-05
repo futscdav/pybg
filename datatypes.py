@@ -300,6 +300,7 @@ class TelemetryEvent:
 
 
 class Location:
+    #max = 0
     def __init__(self):
         self.x = None
         self.y = None
@@ -308,6 +309,14 @@ class Location:
         self.x = json_object['x']
         self.y = json_object['y']
         self.z = json_object['z']
+        #print(" %.2f %.2f %.2f" % (self.x, self.y, self.z))
+        #if(self.x < Location.max):
+        #    Location.max = self.x
+        #if(self.y < Location.max):
+        #    Location.max = self.y
+        #if(self.z < Location.max):
+        #    Location.max = self.z
+        #print(Location.max)
 
 
 class Character(Location):

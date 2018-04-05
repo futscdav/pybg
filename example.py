@@ -10,7 +10,7 @@ api = PubgApi()
 # defaults in the api.py file
 # By default, local "storage" will also be searched for cached
 # files, to disable, pass search_ds=False
-player, error = api.get_player("Arican")
+player, error = api.get_player("Arican", search_ds=False)
 if error:
     raise Exception(error)
 

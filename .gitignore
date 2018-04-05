@@ -1,2 +1,10 @@
 *.env
 __pycache__/*
+maps/*
+matches/*
+players/*
+telemetry/*
+*.txt
+items.py
+items2.py
+lootdata.py
